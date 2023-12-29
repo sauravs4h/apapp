@@ -19,7 +19,8 @@ function Hero() {
         let responce=await axios.get(`https://api.acharyaprashant.org/v2/legacy/courses/series/optuser/course-series-eeb9d3`)
                 .then((res)=>{
                     setHerodata(res.data.details);
-                    console.log(res.data.details);
+                    setIsloding(false)
+                    //console.log(res.data.details);
                     return res.data
                 })
                 .catch((err)=>{
@@ -43,6 +44,9 @@ function Hero() {
 
   return (
     <div>
+        {isLoading? <Text fontSize='6xl'>Loading.....</Text>: isError? <Text fontSize='6xl'>Somethig went wrong </Text>:
+        
+        <>
         <Text mt="6" textAlign='left' pl="9"  fontSize='2xl'>{heroData.title}</Text>
         <Flex mt="6" pl="9" gap="2" pr="9">
             <Image src="https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/20/image.jpg" w="480px" h="300px" alt='Dan Abramov' />
@@ -76,6 +80,9 @@ function Hero() {
                 alt='Dan Abramov'
                 />
         </HStack>
+        </>
+
+        }
 
     </div>
   )
