@@ -4,42 +4,78 @@ import { PhoneIcon, AddIcon, WarningIcon,HamburgerIcon,SearchIcon } from '@chakr
 
 import axios from "axios"
 
-const apiCall=async()=>{
 
-    let res=await axios.get(`https://api.acharyaprashant.org/v2/legacy/courses/series/optuser/course-series-eeb9d3`);
-
-    return res
-
-}
 
 
 function Hero() {
 
     const [isLoading,setIsloding]=useState(true);
 
-    const [apiData,setApidata]=useState({})
+    const [heroData,setHerodata]=useState({});
+    const [isError,setIsError]=useState(false);
+
+    const getData=async()=>{
+
+        let responce=await axios.get(`https://api.acharyaprashant.org/v2/legacy/courses/series/optuser/course-series-eeb9d3`)
+                .then((res)=>{
+                    setHerodata(res.data.details);
+                    console.log(res.data.details);
+                    return res.data
+                })
+                .catch((err)=>{
+                    setIsError(true);
+                    setIsloding(false);
+
+                    console.log("error",err);
+
+                })
+    
+        
+    
+    }
 
     useEffect(()=>{
 
-        let data= apiCall();
+        let data= getData();
         
 
     },[])
 
   return (
     <div>
-        <Text mt="6" textAlign='left' pl="9"  fontSize='2xl'>santwani</Text>
+        <Text mt="6" textAlign='left' pl="9"  fontSize='2xl'>{heroData.title}</Text>
         <Flex mt="6" pl="9" gap="2" pr="9">
-            <Image src='https://bit.ly/dan-abramov' w="480px" h="300px" alt='Dan Abramov' />
+            <Image src="https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/20/image.jpg" w="480px" h="300px" alt='Dan Abramov' />
 
             <Stack>
-                <Text ml="3" textAlign='left'  fontSize='xl'>second santwani</Text>
-                <Container textAlign={"justify"} maxW='800px' fontSize="md">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</Container>
+                <Text ml="3" textAlign='left'  fontSize='xl'>{heroData.subtitle}</Text>
+                <Container textAlign={"justify"} maxW='800px' fontSize="md">{heroData.description}</Container>
 
             </Stack>
             
 
         </Flex>
+
+        <Text mt="6" pl="9" textAlign='left'  fontSize='x' >Share this series:</Text>
+        <HStack pl="9" mt="3">
+        <Image
+                borderRadius='full'
+                boxSize='31px'
+                src='https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png'
+                alt='facebook'
+                />
+                <Image
+                borderRadius='full'
+                boxSize='31px'
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png'
+                alt='Dan Abramov'
+                /><Image
+                borderRadius='full'
+                boxSize='31px'
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png'
+                alt='Dan Abramov'
+                />
+        </HStack>
 
     </div>
   )
