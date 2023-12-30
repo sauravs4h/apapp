@@ -7,6 +7,7 @@ import {
   Stack,
   Box,
   Flex,
+  SimpleGrid
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -53,7 +54,7 @@ function Videoseries() {
               वीडियो श्रृंखलाएँ ({seriesData.length})
             </Text>
             <Divider />
-            <Grid p="4" pt="4" templateColumns="repeat(3, 1fr)" gap={7}>
+            <SimpleGrid columns={{sm:1,md:2,xl:3}} p="4" pt="4"  gap={7}>
               {seriesData.map((el, index) => (
                 <GridItem p="5"  key={el.id} h="100%" w="100%" bg="white" _hover={{ bg: 'gray.100' }} rounded="xl" >
                   <Box ml="0" width="15%" bg="#94a3b8" color="white">
@@ -94,7 +95,7 @@ function Videoseries() {
                   <Divider mt="5" borderColor="black" borderWidth="1px" />
                 </GridItem>
               ))}
-            </Grid>
+            </SimpleGrid>
           </Stack>
         </>
       )}

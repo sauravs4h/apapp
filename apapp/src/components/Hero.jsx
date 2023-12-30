@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Box, Flex, Spacer,HStack,Image,Text,Select,Container,Button,Input,Stack, Center } from '@chakra-ui/react'
+import {Box, Flex, SimpleGrid,HStack,Image,Text,Select,Container,Button,Input,Stack, Center } from '@chakra-ui/react'
 import { PhoneIcon, AddIcon, WarningIcon,HamburgerIcon,SearchIcon } from '@chakra-ui/icons'
 
 import axios from "axios"
@@ -48,11 +48,11 @@ function Hero() {
         
         <>
         <Text mt="6" textAlign='left' pl="9"  fontSize='2xl'>{heroData.title}</Text>
-        <Flex mt="6" pl="9" gap="2" pr="9">
-            <Image src="https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/20/image.jpg" w="480px" h="300px" alt='Dan Abramov' />
+        <Flex  columns={{sm:1,md:1,xl:2}}  mt="6" pl="9"  pr="9">
+            <Image  src="https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/20/image.jpg" w="480px" h="300px" alt='Dan Abramov' />
 
-            <Stack>
-                <Text ml="3" textAlign='left'  fontSize='xl'>{heroData.subtitle}</Text>
+            <Stack   >
+                <Text pl="3" textAlign='left'  fontSize='xl'>{heroData.subtitle}</Text>
                 <Container textAlign={"justify"} maxW='800px' fontSize="md">{heroData.description}</Container>
 
             </Stack>
