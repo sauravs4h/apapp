@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Videoseries from './components/Videoseries';
 import Qna from './components/Qna';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Hero></Hero>
       <Videoseries/>
       <Qna/>
+      <Footer/>
     </div>
   );
 }
