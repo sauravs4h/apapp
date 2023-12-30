@@ -53,9 +53,9 @@ function Videoseries() {
               वीडियो श्रृंखलाएँ ({seriesData.length})
             </Text>
             <Divider />
-            <Grid p="9" pt="4" templateColumns="repeat(3, 1fr)" gap={7}>
+            <Grid p="4" pt="4" templateColumns="repeat(3, 1fr)" gap={7}>
               {seriesData.map((el, index) => (
-                <GridItem  key={el.id} h="100%" w="100%" bg="white" _hover={{ bg: 'gray.100' }}>
+                <GridItem p="5"  key={el.id} h="100%" w="100%" bg="white" _hover={{ bg: 'gray.100' }} rounded="xl" >
                   <Box ml="0" width="15%" bg="#94a3b8" color="white">
                     भाग-{index + 1}
                   </Box>
@@ -77,11 +77,11 @@ function Videoseries() {
                   </Text>
 
                   <Box mt="1" ml="0" width="15%" bg="#c7e6f8" color="black">
-                    hindi
+                    {el.language=="hindi"?"हिंदी":"English"}
                   </Box>
 
-                  <HStack mt="2">
-                    <Text>add cart</Text>
+                  <HStack mt="2" color="#ea5a0f">
+                    <Text>कार्ट मे जोडे</Text>
                     <Divider
                       orientation="vertical"
                       mx="2"
@@ -89,7 +89,7 @@ function Videoseries() {
                       borderWidth="1px"
                       height="12px"
                     />
-                    <Text>enroll</Text>
+                    <Text>एनरोल करे</Text>
                   </HStack>
                   <Divider mt="5" borderColor="black" borderWidth="1px" />
                 </GridItem>
