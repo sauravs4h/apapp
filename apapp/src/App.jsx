@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Videoseries from './components/Videoseries';
+import Qna from './components/Qna';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar></Navbar>
       <Hero></Hero>
       <Videoseries/>
+      <Qna/>
     </div>
   );
 }

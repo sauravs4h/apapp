@@ -25,7 +25,7 @@ function Videoseries() {
       .then((res) => {
         setSeriesdata(res.data.courses);
         setIsloding(false);
-        console.log(res.data.courses);
+        //console.log(res.data.courses);
         return res.data;
       })
       .catch((err) => {
@@ -48,7 +48,7 @@ function Videoseries() {
         <Text fontSize="6xl">Somethig went wrong </Text>
       ) : (
         <>
-          <Stack>
+          <Stack >
             <Text mt="6" textAlign="left" pl="9" fontSize="2xl">
               वीडियो श्रृंखलाएँ ({seriesData.length})
             </Text>
