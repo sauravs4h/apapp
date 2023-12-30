@@ -32,14 +32,17 @@ List any prerequisites that need to be installed before running the project.
 
 2. Navigate to the project directory:
 
+    ```bash
     cd apapp
 
 3. Install dependencies:
 
+    ```bash
     npm install
 
 4. Running the Project
 
+    ```bash
     npm start
 
 
